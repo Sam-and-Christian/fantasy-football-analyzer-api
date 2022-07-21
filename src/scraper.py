@@ -7,6 +7,7 @@ import time
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
+from models.stats import PlayerStats as s
 
 # url = 'https://www.pro-football-reference.com/players/W/WilsRu00/fantasy/2018/'
 # df = pd.read_html(url)[0]
@@ -17,7 +18,7 @@ from bs4 import BeautifulSoup
 
 url = 'https://www.pro-football-reference.com'
 year = 2021
-maxp = 1000
+maxp = 1
     
 # grab fantasy players
 r = requests.get(url + '/years/' + str(year) + '/fantasy.htm')
@@ -66,7 +67,7 @@ for i,row in enumerate(parsed_table.find_all('tr')[2:]):
         tdf['Name'] = name
         tdf['Position'] = pos
         tdf['Season'] = year
-
+        # stats = Stats(year=year, pos=pos)
         # df = df.reset_index()
         df.append(tdf)
     except:
