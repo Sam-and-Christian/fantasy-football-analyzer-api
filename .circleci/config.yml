@@ -31,7 +31,6 @@ workflows:
   circleci-workflow:
     jobs:
       - say-hello
-      - slack-notify
 
 orbs:
   slack: circleci/slack@4.4.4
