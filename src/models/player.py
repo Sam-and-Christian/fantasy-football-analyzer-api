@@ -19,6 +19,10 @@ class Player:
     def stats(self):
         return self._stats
 
+    @property
+    def stats(self):
+        return self._stats
+
     @fname.setter
     def fname(self, name):
         self._fname = name
