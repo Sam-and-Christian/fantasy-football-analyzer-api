@@ -18,7 +18,7 @@ from models.stats import PlayerStats as s
 
 url = 'https://www.pro-football-reference.com'
 year = 2021
-maxp = 1
+maxp = 10
     
 # grab fantasy players
 r = requests.get(url + '/years/' + str(year) + '/fantasy.htm')
@@ -75,6 +75,10 @@ for i,row in enumerate(parsed_table.find_all('tr')[2:]):
     
 df = pd.concat(df)
 df.head()
+
+# temporary
+# (df.query('Name == "Jonathan Taylor"').plot('Date', 'FantPt'))
+#
 
 csv_name = 'test_' + str(year) + '.csv'
 print(f'\nCreating {csv_name}')
